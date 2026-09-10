@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>As-Built Drawings | Gabriel Estate Design Inc.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 25px;
+            line-height: 1.8;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        .btn-large {
+            padding: 18px 50px;
+            font-size: 1.2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 70px 0;
+        }
+
+        section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            color: #34495e;
+            margin: 30px 0 15px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        /* Budget Section */
+        .budget-highlight {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .budget-highlight strong {
+            color: #856404;
+            font-size: 1.2rem;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .checklist li {
+            padding: 10px 0;
+            padding-left: 35px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .service-item {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 4px solid #3498db;
+        }
+
+        .service-item h4 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .service-item p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        .checkbox {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #3498db;
+            border-radius: 3px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        /* Process Flow */
+        .process-flow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .process-step {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+        }
+
+        .process-step h4 {
+            color: #2c3e50;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        .process-arrow {
+            font-size: 2rem;
+            color: #3498db;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .final-cta h2 {
+            color: white;
+        }
+
+        .final-cta p {
+            max-width: 700px;
+            margin: 0 auto 20px;
+            font-size: 1.15rem;
+        }
+
+        .final-cta .btn {
+            background: white;
+            color: #3498db;
+        }
+
+        .final-cta .btn:hover {
+            background: #f8f9fa;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        footer h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            .process-flow {
+                flex-direction: column;
+            }
+
+            .process-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>As-Built Drawings</h1>
+            <p class="subtitle">Understand What You Already Have Before Deciding What to Change</p>
+            <p>If you're thinking about renovating your home but aren't completely sure what you want to do yet, as-built drawings are one of the best places to start.</p>
+            <p>Accurate drawings of your existing house give you a clear picture of the layout, dimensions and major existing conditions of the building. From there, you can explore renovation ideas, compare different options, speak more effectively with contractors and start deciding where your budget will have the biggest impact.</p>
+            <p>You don't need to know exactly what you want to renovate before having your house drawn. Sometimes the drawings are what help you figure that out.</p>
+            <a href="#quote" class="btn btn-large">REQUEST AN AS-BUILT DRAWING QUOTE</a>
+        </div>
+    </div>
+
+    <!-- Budget Section -->
+    <section>
+        <div class="container">
+            <h2>You May Have $300,000 Worth of Ideas and a $100,000 Budget</h2>
+            <p>That is where having accurate existing house plans becomes extremely useful.</p>
+            <p>You might be considering a new kitchen, opening walls, renovating the basement, adding a bathroom, moving the laundry room, building an addition or changing several areas of the house over time.</p>
+            <p>But you probably aren't going to do everything at once.</p>
+
+            <div class="budget-highlight">
+                <p><strong>As-built drawings allow you to look at the house as one complete project and start deciding:</strong></p>
+                <ul class="checklist">
+                    <li>What should be renovated first</li>
+                    <li>Which projects should be done together</li>
+                    <li>What can wait until later</li>
+                    <li>Which ideas fit your budget</li>
+                    <li>Which ideas may not be worth pursuing at all</li>
+                </ul>
+            </div>
+
+            <p>Sometimes drawing an idea is enough to realize that it isn't actually what you wanted or needed.</p>
+            <p>That can save a lot of money before construction ever begins.</p>
+        </div>
+    </section>
+
+    <!-- Contractors Section -->
+    <section>
+        <div class="container">
+            <h2>Better Plans. Better Conversations With Contractors.</h2>
+            <p>Without drawings, early conversations with builders can produce extremely broad construction estimates because everyone may be imagining a different scope of work.</p>
+            <p>One contractor may assume a wall stays. Another may assume it is removed. One may account for structural work while another does not.</p>
+            <p>With measured as-built house drawings, everyone has the same starting point.</p>
+            <p>Contractors can review the existing layout, dimensions, windows, doors, stairs, fixtures and other documented conditions while discussing your renovation ideas.</p>
+            <p>As-built drawings will not replace detailed renovation or permit drawings, but they can make early planning and budgeting conversations far more useful and realistic.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section>
+        <div class="container">
+            <h2>What Can Be Included in As-Built Drawings?</h2>
+            <p>Your drawing package can be customized depending on how much information you want documented.</p>
+            <h3>Choose What You Need</h3>
+
+            <div class="services-grid">
+                <div class="service-item">
+                    <h4><span class="checkbox"></span>Measured Floor Plans</h4>
+                    <p>Basement, main floor, upper floors, garage and other levels.</p>
+                </div>
+
+                <div class="service-item">
+                    <h4><span class="checkbox"></span>Exterior Elevations</h4>
+                    <p>Front, rear and side views of the existing house.</p>
+                </div>
+
+                <div class="service-item">
+                    <h4><span class="checkbox"></span>Roof Plan</h4>
+                    <p>Roof shape, slopes, ridges, valleys and major features.</p>
+                </div>
+
+                <div class="service-item">
+                    <h4><span class="checkbox"></span>Probable Structural Framing</h4>
+                    <p>Visible or reasonably determinable beams, columns, bearing walls, joist directions and other structural conditions.</p>
+                </div>
+
+                <div class="service-item">
+                    <h4><span class="checkbox"></span>Mechanical Information</h4>
+                    <p>Furnace locations, supply registers, return-air grilles and general visible ductwork.</p>
+                </div>
+
+                <div class="service-item">
+                    <h4><span class="checkbox"></span>Plumbing Fixtures</h4>
+                    <p>Existing toilets, sinks, tubs, showers, laundry connections and other visible plumbing fixtures.</p>
+                </div>
+
+                <div class="service-item">
+                    <h4><span class="checkbox"></span>Ceiling Heights & Interior Features</h4>
+                    <p>Bulkheads, level changes, stairs and other important existing conditions.</p>
+                </div>
+
+                <div class="service-item">
+                    <h4><span class="checkbox"></span>3D Existing House Model</h4>
+                    <p>A three-dimensional model to better understand the existing building and explore future renovation ideas.</p>
+                </div>
+
+                <div class="service-item">
+                    <h4><span class="checkbox"></span>Site & Topography</h4>
+                    <p>Building location, exterior features, grading and topographic information where required.</p>
+                </div>
+            </div>
+
+            <h3>You Don't Have to Include Everything</h3>
+            <p>A homeowner planning a kitchen renovation may only need accurate floor plans and structural information.</p>
+            <p>Someone considering an addition or a long-term whole-house renovation may benefit from a much more detailed package.</p>
+            <p>The more information that needs to be measured, investigated and drawn, the greater the cost of the as-built package.</p>
+            <p>We can tailor the scope around what will actually be useful to you.</p>
+        </div>
+    </section>
+
+    <!-- Decision Making Section -->
+    <section>
+        <div class="container">
+            <h2>Make Decisions on Paper Before Making Expensive Decisions on Site</h2>
+            <p>Once your existing house has been accurately documented, renovation ideas can be explored against the real building.</p>
+            <ul class="checklist">
+                <li>Could that wall be removed?</li>
+                <li>Would an addition actually improve the layout?</li>
+                <li>Could the existing space be rearranged instead?</li>
+                <li>Should you renovate the basement before changing the main floor?</li>
+                <li>Will something you build today interfere with something you want to do five years from now?</li>
+            </ul>
+            <p>As-built drawings help turn those questions into something you can actually study.</p>
+            <p>Sometimes the smartest renovation decision is discovering what you don't need to renovate.</p>
+        </div>
+    </section>
+
+    <!-- Long-term Value Section -->
+    <section>
+        <div class="container">
+            <h2>Useful Today. Useful Years From Now.</h2>
+            <p>Even if you don't renovate immediately, there is value in having an accurate set of house plans.</p>
+            <p>A few years from now you may want to renovate the basement, build an addition, change the kitchen or discuss another project with a contractor.</p>
+            <p>Instead of starting from scratch, you already have a documented starting point.</p>
+            <p>It is simply useful to have a proper set of drawings of your own house that you can reference whenever you need them.</p>
+        </div>
+    </section>
+
+    <!-- Process Flow Section -->
+    <section>
+        <div class="container">
+            <h2>As-Built Drawings vs. Renovation Drawings</h2>
+
+            <div class="process-flow">
+                <div class="process-step">
+                    <h4>AS-BUILT DRAWINGS</h4>
+                    <p>Document your house as it exists today.</p>
+                </div>
+
+                <div class="process-arrow">↓</div>
+
+                <div class="process-step">
+                    <h4>DESIGN DRAWINGS</h4>
+                    <p>Explore what the house could become.</p>
+                </div>
+
+                <div class="process-arrow">↓</div>
+
+                <div class="process-step">
+                    <h4>PERMIT / CONSTRUCTION DRAWINGS</h4>
+                    <p>Show what is actually going to be built.</p>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 30px;">The as-built drawings become the foundation for the next stage whenever you're ready.</p>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <div class="final-cta" id="quote">
+        <div class="container">
+            <h2>Start With the House You Already Have</h2>
+            <p>You don't need to have your renovation figured out.</p>
+            <p>If you have several ideas, an uncertain budget or simply want to understand the possibilities for your home, accurate as-built drawings can give you the information you need to start planning properly.</p>
+            <p style="margin-top: 30px; font-weight: 600;">Understand what you have.<br>Explore what is possible.<br>Decide what is actually worth changing.</p>
+            <a href="mailto:info@gabrielestatedesign.com?subject=As-Built%20Drawing%20Quote%20Request" class="btn btn-large">GET A QUOTE FOR AS-BUILT DRAWINGS</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>Gabriel Estate Design Inc.</h3>
+            <p>As-Built Drawings & Residential Architectural Design</p>
+            <p>Hamilton, Ontario</p>
+        </div>
+    </footer>
+</body>
+</html>
